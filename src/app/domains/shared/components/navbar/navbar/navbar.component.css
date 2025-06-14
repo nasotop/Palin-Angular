@@ -1,0 +1,10 @@
+
+.nav-menu {
+	background: var(--main-color);
+	padding: 0.5rem 0;
+	text-align: center;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+

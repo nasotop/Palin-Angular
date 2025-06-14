@@ -1,0 +1,10 @@
+<app-header />
+
+<app-navbar (clickEvent)="buttonHandler($event)" />
+
+<app-banner />
+
+<app-game-wrapper [category]="this.categoryType()" [title]="this.categoryType().toString()" />
+
+<app-footer />
+

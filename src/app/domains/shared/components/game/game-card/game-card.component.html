@@ -1,0 +1,25 @@
+
+  <div class="juego-nostalgico card w-75">
+    <app-image [src]="model().image" [alt]="model().title" classList="imagen-juego"/>
+    <div class="detalle-juego">
+      <p class="titulo-juego my-2">{{ model().title }}</p>
+      <p class="descripcion-juego my-2">
+        {{ model().description }}
+      </p>
+      @if (model().hasDescount) {
+      <p>
+        Antes:
+        $ <del>{{ model().price |  number:'1.0-0':'es-CL' }}</del> CLP
+      </p>
+      <p>
+        Ahora:
+        $ <b>{{ model().price -
+            (model().price * (model().discountPercentage??0) / 100) |  number:'1.0-0':'es-CL' }}</b> CLP
+      </p>
+      } @else {
+      <p class="my-2">
+        $ <b>{{ model().price |  number:'1.0-0':'es-CL'}}</b> CLP
+      </p>
+      }
+    </div>
+  </div>

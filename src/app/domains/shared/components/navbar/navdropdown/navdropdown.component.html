@@ -1,0 +1,19 @@
+<li class="nav-item">
+  <a
+    class="dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {{ label() }}
+  </a>
+  <div class="dropdown">
+    <ul class="dropdown-menu">
+      @for (item of options(); track $index) {
+      <li>
+        <a class="dropdown-item" [href]="item.href">{{ item.label }}</a>
+      </li>
+      }
+    </ul>
+  </div>
+</li>

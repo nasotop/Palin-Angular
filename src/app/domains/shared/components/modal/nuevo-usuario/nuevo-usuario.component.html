@@ -1,0 +1,276 @@
+<div class="modal-header">
+  <h5 class="modal-title">Registro de usuario</h5>
+  <button
+    type="button"
+    class="btn-close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form id="FormNuevoUsuario" [formGroup]="formControl">
+
+
+    @let pApellido = formControl.get('primer_apellido') ;
+     @let sApellido = formControl.get('segundo_apellido') ;
+      @let pNombre =formControl.get('primer_nombre') ; 
+      @let sNombre =formControl.get('segundo_nombre') ;
+       @let fechaNacimiento =formControl.get('fecha_nacimiento') ; 
+       @let nombreUsuario =formControl.get('nombre_usuario') ;
+        @let email = formControl.get('email') ;
+    @let password = formControl.get('password') ; 
+    @let confirmarPassword =formControl.get('confirmar_password') ; 
+    @let direccionEnvio =formControl.get('direccion_envio') ;
+
+
+    <div class="accordion accordion-flush" id="accordion_nuevo_usuario">
+      <div class="accordion-item">
+        <h3 class="accordion-header my-3">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse_info_personal"
+            aria-expanded="true"
+            aria-controls="collapse_info_personal"
+          >
+            Información personal
+          </button>
+        </h3>
+        <div
+          id="collapse_info_personal"
+          class="accordion-collapse collapse show pt-4"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="row">
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="p_nombre"
+                name="p_nombre"
+                type="text"
+                class="form-control"
+                placeholder="Primer nombre"
+                formControlName="primer_nombre"
+              />
+              <label for="p_nombre">Primer nombre</label>
+
+              @if( pNombre && pNombre.errors && pNombre.touched &&
+              pNombre.invalid){
+              <app-form-error
+                [errors]="pNombre.errors"
+                [isTouched]="pNombre.touched"
+              />
+              }
+            </div>
+
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="s_nombre"
+                name="s_nombre"
+                type="text"
+                class="form-control"
+                placeholder="Segundo nombre"
+                formControlName="segundo_nombre"
+              />
+              <label for="s_nombre">Segundo nombre</label>
+              @if( sNombre && sNombre.errors && sNombre.touched &&
+              sNombre.invalid){
+              <app-form-error
+                [errors]="sNombre.errors"
+                [isTouched]="sNombre.touched"
+              />
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="p_apellido"
+                name="p_apellido"
+                type="text"
+                class="form-control"
+                placeholder="Primer apellido"
+                formControlName="primer_apellido"
+              />
+              <label for="p_apellido">Primer apellido</label>
+              @if( pApellido && pApellido.errors && pApellido.touched &&
+              pApellido.invalid){
+              <app-form-error
+                [errors]="pApellido.errors"
+                [isTouched]="pApellido.touched"
+              />
+              }
+            </div>
+
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="s_apellido"
+                name="s_apellido"
+                type="text"
+                class="form-control"
+                placeholder="Segundo apellido"
+                formControlName="segundo_apellido"
+              />
+              <label for="s_apellido">Segundo apellido</label>
+              @if( sApellido && sApellido.errors && sApellido.touched &&
+              sApellido.invalid){
+              <app-form-error
+                [errors]="sApellido.errors"
+                [isTouched]="sApellido.touched"
+              />
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 form-floating mb-2">
+              <input
+                id="fecha_nacimiento_usuario"
+                name="fecha_nacimiento_usuario"
+                type="date"
+                class="form-control"
+                placeholder="Fecha nacimiento"
+                formControlName="fecha_nacimiento"
+              />
+              <label for="fecha_nacimiento_usuario">Fecha nacimiento</label>
+
+              @if( fechaNacimiento && fechaNacimiento.errors &&
+              fechaNacimiento.touched && fechaNacimiento.invalid){
+              <app-form-error
+                [errors]="fechaNacimiento.errors"
+                [isTouched]="fechaNacimiento.touched"
+              />
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header my-3">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse_info_cuenta"
+            aria-expanded="true"
+            aria-controls="collapse_info_cuenta"
+          >
+            Información de la cuenta
+          </button>
+        </h3>
+        <div
+          id="collapse_info_cuenta"
+          class="accordion-collapse collapse show pt-4"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="row">
+            <div class="col-12 form-floating mb-2">
+              <input
+                id="nombre_usuario"
+                name="nombre_usuario"
+                type="text"
+                class="form-control"
+                placeholder="Nombre usuario"
+                formControlName="nombre_usuario"
+              />
+              <label for="nombre_usuario">Nombre de usuario</label>
+
+              @if( nombreUsuario && nombreUsuario.errors &&
+              nombreUsuario.touched && nombreUsuario.invalid){
+              <app-form-error
+                [errors]="nombreUsuario.errors"
+                [isTouched]="nombreUsuario.touched"
+              />
+              }
+            </div>
+            <div class="col-12 form-floating mb-2">
+              <input
+                id="correo_usuario"
+                name="correo_usuario"
+                type="mail"
+                class="form-control"
+                placeholder="Correo usuario"
+                formControlName="email"
+              />
+              <label for="correo_usuario">Correo</label>
+
+              @if( email && email.errors && email.touched && email.invalid){
+              <app-form-error
+                [errors]="email.errors"
+                [isTouched]="email.touched"
+              />
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="clave_usuario"
+                name="clave_usuario"
+                type="password"
+                class="form-control"
+                placeholder="Clave usuario"
+                formControlName="password"
+              />
+              <label for="clave_usuario">Clave</label>
+
+              @if( password && password.errors && password.touched &&
+              password.invalid){
+              <app-form-error
+                [errors]="password.errors"
+                [isTouched]="password.touched"
+              />
+              }
+            </div>
+            <div class="col-lg-6 col-md-12 form-floating mb-2">
+              <input
+                id="clave_validacion_usuario"
+                name="clave_validacion_usuario"
+                type="password"
+                class="form-control"
+                placeholder="Clave usuario"
+                formControlName="confirmar_password"
+              />
+              <label for="clave_validacion_usuario">Repita clave</label>
+
+              @if( confirmarPassword && confirmarPassword.errors &&
+              confirmarPassword.touched && confirmarPassword.invalid){
+              <app-form-error
+                [errors]="confirmarPassword.errors"
+                [isTouched]="confirmarPassword.touched"
+              />
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 form-floating mb-2">
+              <input
+                id="direccion_envio_usuario"
+                name="direccion_envio_usuario"
+                type="text"
+                class="form-control"
+                placeholder="Dirección de envío"
+                formControlName="direccion_envio"
+              />
+              <label for="direccion_envio_usuario">Dirección de envío</label>
+
+              @if( direccionEnvio && direccionEnvio.errors &&
+              direccionEnvio.touched && direccionEnvio.invalid){
+              <app-form-error
+                [errors]="direccionEnvio.errors"
+                [isTouched]="direccionEnvio.touched"
+              />
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button id="BtnLimpiarNuevoUsuario" type="button" class="btn btn-secondary" (click)="formControl.reset()">
+    Limpiar
+  </button>
+  <button id="BtnGuardarNuevoUsuario" type="button" class="btn ver-mas m-0">
+    Guardar
+  </button>
+</div>

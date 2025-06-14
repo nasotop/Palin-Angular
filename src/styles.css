@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #313131;
+  --accent-color: #d4af35;
+  --hover-color: #121212;
+  --footer-bg: #121212;
+  --footer-text: #d4af35;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #1f1f1f 0%, #2e2e2e 100%);
+  color: #eaeaea;
+}
+
+
+
+.ver-mas {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #d4af35;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ver-mas:hover {
+  background: var(--accent-color);
+  color: black;
+}
+
+
+.modal-content{
+  color: #fff;
+  background-color: var(--main-color);
+  --bs-accordion-color: #fff;
+  --bs-accordion-bg: var(--main-color);
+  --bs-accordion-border-color: var(--main-color);
+}
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .categoria h2 {
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+}

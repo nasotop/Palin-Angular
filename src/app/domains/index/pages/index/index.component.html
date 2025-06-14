@@ -1,0 +1,12 @@
+<app-header />
+
+<app-navbar (clickEvent)="buttonHandler($event)" />
+
+<app-banner />
+
+<app-category-wrapper [categories]="categories" />
+
+<app-game-wrapper [category]="CategoryType.NOSTALGIC" [title]="'Nostálgicos'" />
+
+<app-footer />
+

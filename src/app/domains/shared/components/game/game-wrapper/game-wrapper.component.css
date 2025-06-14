@@ -1,0 +1,14 @@
+
+.nostalgicos {
+	background: linear-gradient(135deg, #2e2e2e, #d4af35, #000000);
+	color: #f5e9a3;
+	text-align: center;
+	border-radius: 12px;
+	box-shadow: 0 10px 20px rgba(212, 175, 53, 0.4);
+}
+
+.nostalgicos h2 {
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+	text-shadow: 1px 1px 3px #000000;
+}

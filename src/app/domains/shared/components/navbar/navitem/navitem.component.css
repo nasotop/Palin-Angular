@@ -1,0 +1,16 @@
+.nav-item {
+	text-decoration: none;
+	font-weight: bold;
+	transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-item a{
+	color: white;
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+}
+.nav-item a:hover {
+	background: var(--accent-color);
+	color: black;
+	border-radius: 3px;
+}

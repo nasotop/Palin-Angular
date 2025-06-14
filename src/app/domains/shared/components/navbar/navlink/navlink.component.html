@@ -1,0 +1,10 @@
+<ul
+  class="nav-links align-content-center w-100 navbar-nav ms-auto d-flex justify-content-center flex-wrap p-0 m-0"
+>
+  <app-navitem label="Inicio" href="/" />
+  <app-navitem label="Juegos" />
+  <app-navdropdown label="Categorías" [options]="dropdownItems" />
+  <app-navitem label="Sobre Nosotros" />
+  <app-navitem label="Contacto" />
+  <app-navbutton label="Únete" id="BtnModalNuevoUsuario" (clickEvent)="buttonHandler($event)" />
+</ul>

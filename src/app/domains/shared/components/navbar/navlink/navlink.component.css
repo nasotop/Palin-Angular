@@ -1,0 +1,22 @@
+
+.nav-links {
+	list-style: none;
+	gap: 2rem;
+}
+@media screen and (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    background: var(--main-color);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+}
