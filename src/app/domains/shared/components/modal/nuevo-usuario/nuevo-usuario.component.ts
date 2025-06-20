@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormErrorComponent } from '../../form/form-error/form-error.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { birthdayValidator } from './validactions/birthdate.validation';
-import { securePasswordValidator } from './validactions/secure-password.validation';
-import { passwordMatchValidator } from './validactions/password-match.validation';
+import { birthdayValidator } from './validations/birthdate.validation';
+import { securePasswordValidator } from './validations/secure-password.validation';
+import { passwordMatchValidator } from './validations/password-match.validation';
 @Component({
   selector: 'app-nuevo-usuario',
   imports: [CommonModule, ReactiveFormsModule, FormErrorComponent],
@@ -44,7 +44,7 @@ export class NuevoUsuarioComponent {
           Validators.maxLength(18),
         ],
       ],
-      direccion_envio: ['', Validators.required],
+      direccion_envio: [''],
     },
     { validators: [passwordMatchValidator] }
   );

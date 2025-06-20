@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, computed, Input, input, signal, SimpleChanges } from '@angular/core';
 import { GameWrapperComponent } from '../../shared/components/game/game-wrapper/game-wrapper.component';
 import { NavbarComponent } from '../../shared/components/navbar/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
@@ -24,26 +24,46 @@ import { Category } from '../../enum/category.enum';
 export class CategoryComponent {
   constructor(private modalService: NgbModal) {}
 
-  categoryType = signal<Category>(Category.NOSTALGIC);
-
   category = input.required<string>();
 
-  ngOnInit() {
-    switch (this.category()) {
-      case 'strategy':
-        this.categoryType.set(Category.STRATEGY);
-        break;
-      case 'rol':
-        this.categoryType.set(Category.ROL);
-        break;
-      case 'family':
-        this.categoryType.set(Category.FAMILY);
-        break;
-      case 'wargames':
-        this.categoryType.set(Category.WARGAME);
-        break;
-      default:
-        break;
+  categoryType = signal<Category>(Category.NOSTALGIC);
+  categoryTitle =signal<string>("Nostálgicos");
+
+
+   typeMap: Record<string, Category> = {
+    strategy: Category.STRATEGY,
+    rol:      Category.ROL,
+    family:   Category.FAMILY,
+    wargames: Category.WARGAME,
+  };
+
+  titleMap: Record<Category, string>={
+    [Category.NOSTALGIC]: 'Nostálgicos',
+    [Category.STRATEGY]: 'Estrategia',
+    [Category.WARGAME]: 'Juegos de Guerra',
+    [Category.FAMILY]: 'Familiares',
+    [Category.ROL]: 'Rol'
+  }
+
+   derivedType = computed(() => {
+    const categoryValue = this.category();
+    return this.typeMap[categoryValue?.toLowerCase()] ?? Category.NOSTALGIC;
+  });
+
+  derivedTitle=computed(()=>{
+    const categoryValue = this.categoryType();
+    return this.titleMap[categoryValue]?? "Nostálgicos";
+  });
+  
+  ngOnInit(): void {
+    this.categoryType.set(this.derivedType());
+    this.categoryTitle.set(this.derivedTitle());
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['category'] && !changes['category'].isFirstChange()) {
+      this.categoryType.set(this.derivedType());
+      this.categoryTitle.set(this.derivedTitle());
     }
   }
 

@@ -1,7 +1,7 @@
 export enum Category {
-  NOSTALGIC = 'nostalgico',
-  STRATEGY = 'estrategia',
-  WARGAME = 'guerra',
-  FAMILY = 'familiar',
+  NOSTALGIC = 'nostalgic',
+  STRATEGY = 'strategy',
+  WARGAME = 'wargame',
+  FAMILY = 'family',
   ROL = 'rol'
 }
